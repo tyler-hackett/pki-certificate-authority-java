@@ -1,0 +1,13 @@
+# Default gitleaks rules plus one reviewed exception.
+# The generic-api-key rule misreads the CAUtils method signatures
+# "PrivateKey issuerKey, X509Certificate issuerCert" as a key assignment.
+# These lines contain parameter names only.
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "CAUtils method signatures (reviewed, no secret)"
+condition = "AND"
+paths = ['''certs-base/src/main/java/io/github/tylerhackett/crypto/CAUtils\.java''']
+regexTarget = "line"
+regexes = ['''PrivateKey issuerKey, X509Certificate issuerCert''']
