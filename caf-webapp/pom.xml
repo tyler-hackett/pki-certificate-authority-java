@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>caf-webapp</artifactId>
+	<parent>
+		<groupId>io.github.tylerhackett</groupId>
+		<artifactId>caf-root</artifactId>
+		<version>1.0.0</version>
+		<relativePath>../caf-root/pom.xml</relativePath>
+	</parent>
+
+	<properties>
+		<compiler-plugin.version>3.14.0</compiler-plugin.version>
+		<maven.compiler.release>21</maven.compiler.release>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
+		<quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
+		<quarkus.platform.version>3.31.3</quarkus.platform.version>
+		<quarkus-amazon-services.version>3.12.1</quarkus-amazon-services.version>
+		<skipITs>true</skipITs>
+		<surefire-plugin.version>3.5.3</surefire-plugin.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>${quarkus.platform.group-id}</groupId>
+				<artifactId>${quarkus.platform.artifact-id}</artifactId>
+				<version>${quarkus.platform.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>io.github.tylerhackett</groupId>
+				<artifactId>caf-webapp</artifactId>
+				<version>1.0.0</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>${quarkus.platform.group-id}</groupId>
+				<artifactId>quarkus-maven-plugin</artifactId>
+				<version>${quarkus.platform.version}</version>
+				<extensions>true</extensions>
+				<executions>
+					<execution>
+						<goals>
+							<goal>build</goal>
+							<goal>generate-code</goal>
+							<goal>generate-code-tests</goal>
+							<goal>native-image-agent</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>io.quarkiverse.qute.web</groupId>
+			<artifactId>quarkus-qute-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>

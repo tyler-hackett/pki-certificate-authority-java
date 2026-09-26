@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="/css/Site.css"/>
+    <link href="/static/favicon.png" rel="shortcut icon" type="image/x-icon" />
+
+    <title>{#insert title}Default Title{/insert}</title>
+
+</head>
+
+
+<body class="twoColumnHdrFtr">
+
+<div id="container">
+    <header id="header">
+        {!<h1>!}
+        <div class="centered-div">
+            <div class="image-container">
+                <img alt="[CAF Banner]" src="/static/caf-banner.jpg">
+                <div class="text-overlay">AI-generated art</div>
+            </div>
+        </div>
+        {!</h1>!}
+    </header>
+
+    <nav id="nav">
+        <ul>
+            <li><a href="/web/users">Users</a></li>
+            <li><a href="/web/images">Images</a></li>
+            <li><a href="/web/approval">Approval</a></li>
+        </ul>
+    </nav>
+
+    <aside id="sidebar">
+        <h1>Links</h1>
+        <p>
+            <a href="https://github.com/tyler-hackett">GitHub profile</a>
+        </p>
+        <p>
+            <a href="https://github.com/tyler-hackett/pki-certificate-authority-java">Source code</a>
+        </p>
+    </aside>
+
+    <article id="content">
+        {#insert}No content!{/insert}
+    </article>
+
+    <footer id="footer">
+        <p>&#xA9; 2026 Tyler Hackett</p>
+    </footer>
+</div>
+
+</body>
+
+</html>
